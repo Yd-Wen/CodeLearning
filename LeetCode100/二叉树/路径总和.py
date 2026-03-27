@@ -1,3 +1,10 @@
+"""
+437. 路径总和 III
+【题目】
+给定一个二叉树的根节点 root ，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的路径的数目。
+
+路径：不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。结点都存放着一个整数值。
+"""
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> int:
         # 前缀和字典：key=前缀和，value=出现次数
