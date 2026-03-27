@@ -44,6 +44,41 @@ class Solution2(object):
 
     return result
 
+  # 前序遍历：根 → 左 → 右
+  def preorderTraversal(self, root):
+      result = []
+      stack = []
+      current = root
+
+      while current or stack:
+          while current:
+              result.append(current.val)  # 一遇到就访问（根）
+              stack.append(current)
+              current = current.left
+          
+          current = stack.pop()
+          current = current.right         # 不再访问，直接去右
+
+      return result
+
+  # 后序遍历：左 → 右 → 根
+  def postorderTraversal(self, root):
+    result = []
+    stack = []
+    current = root
+
+    while current or stack:
+        while current:
+            result.append(current.val)  # 先访问根
+            stack.append(current)
+            current = current.right      # 先往右！
+
+        current = stack.pop()
+        current = current.left           # 再往左！
+
+    return result[::-1]  # 最后反转！
+
+
 # Morris
 class Solution3(object):
   def inorderTraversal(self, root):
@@ -56,17 +91,22 @@ class Solution3(object):
     prev = current
 
     while current:
+      # 无左往右走
       if not current.left: 
         result.append(current.val)
         current = current.right
+      # 有左找前驱
       else:
+        # 找到前驱
         prev = current.left
         while prev.right and prev.right != current: 
           prev = prev.right
+        # 前驱有右指当前，往右走
         if prev.right == current:
           prev.right = None  # 恢复树
           result.append(current.val)
           current = current.right
+        # 前驱无右置为空，往左走
         else:
           prev.right = current
           current = current.left
