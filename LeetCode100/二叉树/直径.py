@@ -15,7 +15,7 @@ class Solution(object):
             
             # 计算直径
             self.max_dia = max(self.max_dia, left + right)
-            # 返回当前节点的高度/深度
+            # 返回当前节点的高度/深度 = 左右子树深度最大值 + 1
             return max(left, right) + 1
         
         height(root)
