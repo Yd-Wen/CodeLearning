@@ -5,6 +5,14 @@
 
 路径：不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。结点都存放着一个整数值。
 """
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+import collections
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> int:
         # 前缀和字典：key=前缀和，value=出现次数
