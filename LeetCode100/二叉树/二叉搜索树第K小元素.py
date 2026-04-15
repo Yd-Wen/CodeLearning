@@ -7,38 +7,38 @@
 
 # 中序遍历
 class Solution1(object):
-  def kthSmallest(self, root, k):
-    """
-    :type root: Optional[TreeNode]
-    :type k: int
-    :rtype: int
-    """
-    res = []
-    def inorder(node):
-        if node:
-            inorder(node.left)
-            res.append(node.val)
-            inorder(node.right)
-    inorder(root)
-    return res[k-1]
-
-
-# 迭代
-class Solution(object):
     def kthSmallest(self, root, k):
         """
         :type root: Optional[TreeNode]
         :type k: int
         :rtype: int
         """
-        stack = []
-        while stack or root:
-            while root:
-                stack.append(root)
-                root = root.left
-            root = stack.pop()
-            k -= 1
-            if k == 0:
-                return root.val
-            root = root.right
+        res = []
+        def inorder(node):
+                if node:
+                        inorder(node.left)
+                        res.append(node.val)
+                        inorder(node.right)
+        inorder(root)
+        return res[k-1]
+
+
+# 迭代
+class Solution(object):
+        def kthSmallest(self, root, k):
+                """
+                :type root: Optional[TreeNode]
+                :type k: int
+                :rtype: int
+                """
+                stack = []
+                while stack or root:
+                        while root:
+                                stack.append(root)
+                                root = root.left
+                        root = stack.pop()
+                        k -= 1
+                        if k == 0:
+                                return root.val
+                        root = root.right
         
