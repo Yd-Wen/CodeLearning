@@ -10,7 +10,7 @@ class Solution(object):
             return 0
         n = len(words)
         min_dist = n
-        for i, elem in enumerate(words):
+        for i in range(n):
             if words[i] == target:
                 min_dist = min(min_dist, min(abs(startIndex - i), n - abs(startIndex - i)))
         return -1 if min_dist == n else min_dist
