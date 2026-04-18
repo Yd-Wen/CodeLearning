@@ -1,3 +1,10 @@
+"""
+:: 是 Python 切片语法的一部分，完整格式是：
+序列[ 起始索引 : 结束索引 : 步长 ]
+- [::] 复制序列
+- [::-1] 反转序列
+"""
+
 # nums = [12,2,21,4,66,78,21] 不通过，字典覆盖了旧值，只保留了最后一次出现的下标
 class Solution(object):
     def minMirrorPairDistance(self, nums):
