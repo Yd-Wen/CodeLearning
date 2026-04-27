@@ -32,7 +32,7 @@ class Solution(object):
 
 # 官方题解:无数据结构定义,无按秩合并
 class Solution:
-    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+    def findCircleNum(self, isConnected):
         def find(index: int) -> int:
             if parent[index] != index:
                 parent[index] = find(parent[index])
